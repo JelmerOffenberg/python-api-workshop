@@ -1,19 +1,19 @@
 # Introduction: What We're Building Today
 
-Welcome to the FastAPI workshop! Today, we’ll focus on building an API. The goal is to give you hands-on experience with FastAPI, a modern framework that enables us to quickly build data-centric APIs that can handle and validate structured data, store results, and provide endpoints for querying and analysis. By the end of this workshop, you’ll have a solid foundation in building APIs. You’ll be able to create APIs that support all kinds of use cases in your company, such as: sharing data, serving machine learning models and more.
+Welcome to the FastAPI workshop! Today, we’ll focus on building an API. The goal is to give you hands-on experience with FastAPI, a modern framework that enables us to quickly build data-centric APIs that can handle and validate structured data, store results, and provide endpoints for querying. By the end of this workshop, you’ll have a solid foundation in building APIs. You’ll be able to create APIs that support all kinds of use cases in your company, such as: sharing data, serving machine learning models and more.
 
 This workshop can be challenging if you're not familiar with Python, but don't worry! We'll guide you through the process step-by-step. If you have any questions, feel free to ask. We're here to help you learn and grow. Struggling is part of the learning process, so don't be afraid to make mistakes.
 
 ## Workshop Outline
 The workshop is structured around a series of exercises that will guide you through the process of building an API in Python using FastAPI. We’ll start with the basics and gradually introduce more advanced concepts. Here’s a brief overview of what we’ll cover:
 
-1. **Setting up a basic API** with a “Hello World” API tailored for data analytics.
+1. **Setting up a basic API** with a “Hello World” API to get a feel for the environment.
 2. **Submit and retrieve data** to handle uploading data entries and querying them.
 3. **Validate input data** using Pydantic to ensure data quality and consistency.
 4. **Further data validation** extending your Pydantic models by adding constraints and validators.
 5. **Connecting to a Database** using SQLite and SQLAlchemy ORM to manage datasets and processed data.
 6. **Speed up your API with a cache** to avoid unnecessary database queries and improve performance.
-7. **Secure your API** by implementing a simple API key authentication system.
+7. **Secure your API (optional)** by implementing a simple API key authentication system.
 
 ---
 
@@ -37,8 +37,13 @@ By the end of this training, you'll have created your own basic API using FastAP
 ### Step-by-Step Instructions:
 
 1. **Environment Setup**
-    - TODO: Add instructions for setting up the environment.
-    - Create a `main.py` file, which will serve as the entry point for your API.
+   - Log on to: https://console.cloud.google.com/
+   - Click on "activate cloud shell" <br> ![cloud-shell](img/cloud-shell.png)<br>
+   - Click on "open editor" <br> ![open-editor](img/open-editor.png)<br>
+   - Open a new terminal and enter: `git clone https://github.com/JelmerOffenberg/python-api-workshop`. This will clone the repository in your working directory. You should see a folder appear on the left.
+   - Open a terminal (go to view > terminal > new terminal) and type `make environment` this will set up the environment for you.
+   - If everything runs without any errors you can proceed. Otherwise, ask for help.
+   - Create a `main.py` file, which will serve as the entry point for your API.
 
 2. **Creating a traditional "Hello world" Endpoint**
     - In `main.py`, create a basic FastAPI app and define a route at `/` that returns a JSON response with the message `"Hello world!"`. Remember, routes are just functions in FastAPI, you can check the FastAPI documentation for examples on how to do this.

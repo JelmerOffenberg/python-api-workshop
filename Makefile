@@ -1,4 +1,4 @@
-.PHONY: install run
+.PHONY:
 
 install:
 	pip install -r requirements.txt

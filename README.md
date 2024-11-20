@@ -44,7 +44,7 @@ By the end of this training, you'll have created your own basic API using FastAP
    - Go to file > open folder and search for the folder in your home directory that's called `python-api-workshop`.
    - Go to your terminal and type `make environment` this will set up the environment for you.
    - If everything runs without any errors you can proceed. Otherwise, ask for help.
-   - Create a `main.py` file, which will serve as the entry point for your API.
+   - Create a `main.py` file, which will serve as the entry point for your API. Here you will put most of your code for today!
 
 2. **Creating a traditional "Hello world" Endpoint**
     - In `main.py`, create a basic FastAPI app and define an endpoint at `/` that returns a JSON response with the message `"Hello world!"`. Remember, endpoints are just Python functions with a decorator in FastAPI, you can check the FastAPI documentation for examples on how to do this.

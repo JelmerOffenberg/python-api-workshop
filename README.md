@@ -129,23 +129,23 @@ In the previous exercise, you structured input data manually. Now, we'll formali
 
 ---
 
-### Exercise 5: Connecting to a database with SQLite and SQLAlchemy ORM
-**Note**: this exercise is a bit more complicated, but we'll go through it step by step. In this exercise, we will introduce a few new concepts. We'll connect our API to a database using SQLAlchemy (a Python library). This might sound complex, but it's actually quite simple. SQLIte is a simple database that is often used for small applications and prototyping. SQLAlchemy is an Object Relational Mapper (ORM) that allows us to interact with the database using Python objects. This means that we can interact with the database without writing SQL queries. This also ensure that we can easily switch to a different database if we want to. SQLAlchemy is the translator between the database and our Python code.
+### Exercise 5: Connecting to a database with SQLite and SQLModel
+**Note**: this exercise is a bit more complicated, but we'll go through it step by step. In this exercise, we will introduce a few new concepts. We'll connect our API to a database using SQLModel (a Python library). This might sound complex, but it's actually quite simple. SQLIte is a simple database that is often used for small applications and prototyping. SQLModel is a library that makes it easy to interact with databases in Python.
 
 A SQLite database is generally just a file, this makes it super easy to work with. You can just create a file and start using it as a database. SQLAlchemy will take care of the rest.
 **Objective:** Set up a SQLite database to store data, making the data persistent and enabling more complex querying and analysis.
 
 #### Step-by-Step Instructions:
 
-1. **Configure SQLite with SQLAlchemy**
+1. **Configure SQLite with SQLModel**
     - I've created a `database.py` file that provides some boilerplate code to get you started. This file will contain the code to interact with the database.
     - Try to run your file and see if the database file is created in your directory. You can check this by running `ls` in your terminal or check the file tree.
-    - What are the benefits of using an ORM like SQLAlchemy for database interactions?
-    - What are the potential drawbacks of using an ORM like SQLAlchemy for database interactions?
+    - What are the benefits of using an ORM like SQLModel for database interactions?
+    - What are the potential drawbacks of using an ORM like SQLModel for database interactions?
 
-2. **Create a SQLAlchemy Model for your Data**
-    - Just as with FastAPI and Pydantic, you can use SQLAlchemy to define data models. Create a SQLAlchemy model in the `database.py` file for your data that matches the Pydantic model you've defined earlier. The data model is the object that is stored in the database.
-    - Ensure that the SQLAlchemy model is correctly defined and that it matches the Pydantic model.
+2. **Create a SQLModel Model for your Data**
+    - Just as with FastAPI and Pydantic, you can use SQLModel to define data models. Create a SQLModel model in the `database.py` file for your data that *replaces* the Pydantic model you've defined earlier. The data model is the object that is stored in the database.
+    - SQLModel is created in such a way that is functions as a Pydantic model, so you can use the same model for both your API and your database! This is a very powerful concept since it allows you to use the same model for both your API and your database.
     - Test the model by creating an instance of it and printing it. Does it work as expected?
 
 2. **Save Uploaded Data to the Database**
@@ -157,7 +157,7 @@ A SQLite database is generally just a file, this makes it super easy to work wit
     - Add sorting, filtering, and pagination to the `/data` endpoint so users can retrieve data by `category`, `timestamp`, and sorted by `value`.
 
 4. **Optimize Querying with Indexes**
-    - Add an index to the `identifier` column of your SQLAlchemy model for faster querying.
+    - Add an index to the `identifier` column of your SQLModel model for faster querying.
     - Test the querying speed before and after indexing with larger data samples, if possible.
 
 ---

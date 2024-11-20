@@ -23,7 +23,7 @@ For this workshop, each of you will work on a dedicated Google Cloud environment
 ---
 
 ## FastAPI Documentation
-You can find FastAPI’s official documentation here: [FastAPI Documentation](https://fastapi.tiangolo.com/). The documentation is well-organized, and many of the topics we’ll cover today, such as building routes, using Pydantic for validation are covered in detail. This will be a helpful reference as you complete each exercise.
+You can find FastAPI’s official documentation here: [FastAPI Documentation](https://fastapi.tiangolo.com/). The documentation is well-organized, and many of the topics we’ll cover today, such as building endpoints, using Pydantic for validation are covered in detail. This will be a helpful reference as you complete each exercise.
 
 ---
 ## Exercises: Building a Data Analytics API
@@ -47,8 +47,8 @@ By the end of this training, you'll have created your own basic API using FastAP
    - Create a `main.py` file, which will serve as the entry point for your API.
 
 2. **Creating a traditional "Hello world" Endpoint**
-    - In `main.py`, create a basic FastAPI app and define a route at `/` that returns a JSON response with the message `"Hello world!"`. Remember, routes are just functions in FastAPI, you can check the FastAPI documentation for examples on how to do this.
-    - Create a second route at `/info` that provides some information about the API. Think of a logical way to present this information. How is information often sent over the internet? What standard data format is common to use?
+    - In `main.py`, create a basic FastAPI app and define an endpoint at `/` that returns a JSON response with the message `"Hello world!"`. Remember, endpoints are just Python functions with a decorator in FastAPI, you can check the FastAPI documentation for examples on how to do this.
+    - Create a second endpoint at `/info` that provides some information about the API. Think of a logical way to present this information. How is information often sent over the internet? What standard data format is common to use?
 
 3. **Run the API Server with Uvicorn and Explore the Documentation**
     - Start the server by typing `make run` in the terminal and use the preview button in the Google cloud. If you work on your local machine, you can access the API at `http://localhost:8000`. See the image below for the web preview: 

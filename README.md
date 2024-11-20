@@ -13,7 +13,7 @@ The workshop is structured around a series of exercises that will guide you thro
 4. **Further data validation** extending your Pydantic models by adding constraints and validators.
 5. **Connecting to a Database** using SQLite and SQLAlchemy ORM to manage datasets and processed data.
 6. **Speed up your API with a cache** to avoid unnecessary database queries and improve performance.
-7. **Secure your API (optional)** by implementing a simple API key authentication system.
+7. **Secure your API (optional)** extra exercises to implement an API key authentication system and cache expiration mechanism.
 
 ---
 
@@ -33,7 +33,7 @@ By the end of this training, you'll have created your own basic API using FastAP
 
 ### Exercise 1: Setting a basic API
 **Objective:** Set up your first FastAPI app and get it running. Familiarise yourself with the concepts.
-
+   
 ### Step-by-Step Instructions:
 
 1. **Environment Setup**
@@ -60,7 +60,7 @@ By the end of this training, you'll have created your own basic API using FastAP
 ---
 
 ### Exercise 2: Submit and retrieve data
-**Objective:** Develop endpoints for submitting and retrieving data, a common practice. Note that we will use in-memory data storage for now, this means that you'll have to define a python variable where you store your data for the runtime of this application.
+**Objective:** Develop endpoints to handle data submission and retrieval using in-memory storage.
 
 If you have no inspiration for what kind of data to submit, take store inventory as an example. Products have a name, price, weight etc.
 
@@ -81,7 +81,8 @@ If you have no inspiration for what kind of data to submit, take store inventory
 ---
 
 ### Exercise 3: Use Pydantic for data validation
-In the previous exercise, we've submitted simple JSON data to the API using Python dictionaries. However, we want to ensure that the data that is submitted is valid. We can use Pydantic for this. Pydantic is a data validation library that is used in FastAPI to validate data that is submitted to the API.
+In the previous exercise, you structured input data manually. Now, we'll formalize this using Pydantic models. Pydantic is a data validation library that is used in FastAPI to validate data that is submitted to the API.
+
 **Objective**: Define the data model for your endpoint in Pydantic and ensure the API only accepts valid data.
 
 ### Step-by-Step Instructions:
@@ -129,7 +130,7 @@ In the previous exercise, we've submitted simple JSON data to the API using Pyth
 ---
 
 ### Exercise 5: Connecting to a database with SQLite and SQLAlchemy ORM
-In this exercise, we will introduce a few new concepts. We'll connect our API to a database using SQLAlchemy (a Python library). This might sound complex, but it's actually quite simple. SQLIte is a simple database that is often used for small applications and prototyping. SQLAlchemy is an Object Relational Mapper (ORM) that allows us to interact with the database using Python objects. This means that we can interact with the database without writing SQL queries. This also ensure that we can easily switch to a different database if we want to. SQLAlchemy is the translator between the database and our Python code.
+**Note**: this exercise is a bit more complicated, but we'll go through it step by step. In this exercise, we will introduce a few new concepts. We'll connect our API to a database using SQLAlchemy (a Python library). This might sound complex, but it's actually quite simple. SQLIte is a simple database that is often used for small applications and prototyping. SQLAlchemy is an Object Relational Mapper (ORM) that allows us to interact with the database using Python objects. This means that we can interact with the database without writing SQL queries. This also ensure that we can easily switch to a different database if we want to. SQLAlchemy is the translator between the database and our Python code.
 
 A SQLite database is generally just a file, this makes it super easy to work with. You can just create a file and start using it as a database. SQLAlchemy will take care of the rest.
 **Objective:** Set up a SQLite database to store data, making the data persistent and enabling more complex querying and analysis.
@@ -137,14 +138,13 @@ A SQLite database is generally just a file, this makes it super easy to work wit
 #### Step-by-Step Instructions:
 
 1. **Configure SQLite with SQLAlchemy**
-    - Create a `database.py` file and configure a SQLite database connection using SQLAlchemy. You can use the `create_engine` function from SQLAlchemy to create a database connection. The documentation for this is pretty good. The database file will be automatically created.
-    - Try to run your file and see if the database file is created and no errors arise.
-    - To run a python file, you can use the following command: `python database.py`. Ensure that reside in the directory where the file exists.
+    - I've created a `database.py` file that provides some boilerplate code to get you started. This file will contain the code to interact with the database.
+    - Try to run your file and see if the database file is created in your directory. You can check this by running `ls` in your terminal or check the file tree.
     - What are the benefits of using an ORM like SQLAlchemy for database interactions?
     - What are the potential drawbacks of using an ORM like SQLAlchemy for database interactions?
 
 2. **Create a SQLAlchemy Model for your Data**
-    - Just as with FastAPI and Pydantic, you can use SQLAlchemy to define data models. Create a SQLAlchemy model for your data that matches the Pydantic model you've defined earlier. The data model is the object that is stored in the database.
+    - Just as with FastAPI and Pydantic, you can use SQLAlchemy to define data models. Create a SQLAlchemy model in the `database.py` file for your data that matches the Pydantic model you've defined earlier. The data model is the object that is stored in the database.
     - Ensure that the SQLAlchemy model is correctly defined and that it matches the Pydantic model.
     - Test the model by creating an instance of it and printing it. Does it work as expected?
 
@@ -175,36 +175,29 @@ A SQLite database is generally just a file, this makes it super easy to work wit
     - If the data is found in the cache, return it immediately.
     - If the data is not in the cache, query the database, store the result in the cache, and then return it to the user.
 
-3. **Implement Cache Expiration**
-    - Introduce a mechanism to ensure the cache does not hold outdated or stale data indefinitely. This could be a timestamp associated with each cached entry.
-    - If the cached data is older than a certain duration (e.g., 5 minutes), remove it from the cache and fetch fresh data from the database.
-
-4. **Test the Cache**
+3. **Test the Cache**
     - Test your implementation by:
         - Making repeated requests for the same data and observing the response times.
         - You can add logging or print statements to your code to verify when data is retrieved from the cache versus the database.
 
-5. **Additional Task: Reflection**
+4. **Additional Task: Reflection**
     - Why do you think caching improves performance? Is this always useful? When might caching be less effective?
     - What challenges might arise when using a cache, and how can they be addressed?
 
 ---
 
-### Exercise 7 (OPTIONAL): Implement a simple api-key authentication system
+### Exercise 7 (OPTIONAL): Extra exercises, cherry pick one or more
 **Objective:** Secure your API by implementing a simple API key authentication system. This will allow you to restrict access to your API to only those who have a valid API key.
+**Objective:** Implement a cache expiration mechanism to ensure that the cache does not hold outdated or stale data indefinitely.
 
 #### Step-by-Step Instructions:
 
-1. **Generate an API Key**
-    - Create a random API key that clients will need to include in their requests to authenticate themselves.
-
-2. **Implement API Key Authentication**
-    - Modify your FastAPI application to check for the presence of the API key in incoming requests.
+1. **Create an authentication system**
+    - Implement a simple API key authentication system in your FastAPI application.
+    - Modify your application to check for the presence of an API key in incoming requests.
     - If the API key is missing or incorrect, return a 401 Unauthorized response.
     - If the API key is valid, allow the request to proceed as normal.
 
-3. **Test the Authentication System**
-    - Test your implementation by:
-        - Making requests to your API without an API key and observing the response.
-        - Making requests with an incorrect API key and observing the response.
-        - Making requests with the correct API key and ensuring they are successful.
+2. **Implement Cache Expiration**
+   - Introduce a mechanism to ensure the cache does not hold outdated or stale data indefinitely. This could be a timestamp associated with each cached entry.
+   - If the cached data is older than a certain duration (e.g., 5 minutes), remove it from the cache and fetch fresh data from the database.

@@ -42,7 +42,7 @@ By the end of this training, you'll have created your own basic API using FastAP
    - Click on "open editor" <br> ![open-editor](img/open-editor.png)<br>
    - Open a new terminal (go to view > terminal > new terminal) and enter: `git clone https://github.com/JelmerOffenberg/python-api-workshop`. This will clone the repository in your working directory. You should see a folder appear on the left.
    - Go to file > open folder and search for the folder in your home directory that's called `python-api-workshop`.
-   - Go to your terminal and type `make environment` this will set up the environment for you.
+   - Go to your terminal and type `make install` this will set up the environment for you.
    - If everything runs without any errors you can proceed. Otherwise, ask for help.
    - Create a `main.py` file, which will serve as the entry point for your API. Here you will put most of your code for today!
 

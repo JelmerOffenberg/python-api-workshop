@@ -51,7 +51,7 @@ By the end of this training, you'll have created your own basic API using FastAP
     - Create a second endpoint at `/info` that provides some information about the API. Think of a logical way to present this information. How is information often sent over the internet? What standard data format is common to use?
 
 3. **Run the API Server with Uvicorn and Explore the Documentation**
-    - Start the server by typing `make run` in the terminal and use the preview button in the Google cloud. If you work on your local machine, you can access the API at `http://localhost:8000`. See the image below for the web preview: 
+    - Start the server by typing `make run` in the terminal and use the preview button in the Google cloud. If you work on your local machine, you can access the API at `http://localhost:8080`. See the image below for the web preview: 
     - ![web-preview](img/expose-api.png)
     - If you got your API running, then you can go back and forth to change things and see the effect.
     - If you want to try out your endpoints in the web browser, you can go to the `/docs` endpoint. It serves an interactive documentation page for developers.
